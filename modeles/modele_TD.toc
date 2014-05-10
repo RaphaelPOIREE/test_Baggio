@@ -1,0 +1,3 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {french}
+\beamer@sectionintoc {1}{\IeC {\'E}tude cin\IeC {\'e}matique d'un robot 3 axes}{2}{0}{1}

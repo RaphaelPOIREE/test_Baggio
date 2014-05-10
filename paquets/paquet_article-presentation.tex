@@ -1,0 +1,154 @@
+
+%%%% Packages communs Document-Diapos
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{verbatim}
+\usepackage{mdframed}
+\usepackage[tikz]{bclogo}
+%\usepackage{bclogo}
+
+\usepackage{xcolor}
+\usepackage{thumbpdf}
+\usepackage[final]{pdfpages}
+\usepackage{hyperref}
+\usepackage{multimedia}
+\usepackage[french]{varioref}
+\usepackage{array}
+\usepackage{transparent}
+\usepackage{mathrsfs}
+\usepackage{longtable}
+%\hypersetup{pdfpagemode=FullScreen}
+\usepackage{xargs}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{mathtools}
+%%%%%  Choix Cours/TD/TP/DS
+\newboolean{Cours}
+\newboolean{TD}
+\newboolean{TP}
+\newboolean{Exo}
+\newboolean{Essentiels}
+\newboolean{BoiteAOutil}
+
+\mode<article>{\usepackage{mathptmx}}
+\renewcommand{\\}{\par\noindent}
+
+\mode<article>{\usepackage{geometry}}
+\mode<article>{\geometry{hmargin=1cm,vmargin=2cm}}
+
+\mode<article>{\usepackage{fancyhdr}}
+%\mode<article>{\pagestyle{fancy}}
+\mode<article>{\usepackage{lastpage}}
+\mode<article>{\usepackage{sectsty}}
+\mode<article>{\definecolor{couleur_section}{RGB}{0,0,128}}
+\mode<article>{\definecolor{couleur_subsection}{RGB}{66,91,138}}
+\mode<article>{\sectionfont{\color{couleur_section}{}}}
+\mode<article>{\subsectionfont{\color{couleur_subsection}{}}}
+\mode<article>{\subsubsectionfont{\color{blue}{}}}
+
+
+
+\mode<presentation>{\usetheme{Madrid}}
+%\mode<presentation>{\usetheme{CambridgeUS}}
+\mode<presentation>{\setbeamertemplate{navigation symbols}{}}
+\mode<presentation>{\usepackage{lmodern}}
+\mode<presentation>{\usepackage[absolute,overlay]{textpos}}
+\mode<presentation>{\setbeamertemplate{caption}[numbered]}
+\mode<presentation>{ \setbeamertemplate{itemize item}[square]
+ \setbeamertemplate{itemize subitem}[triangle]
+ \setbeamertemplate{itemize subsubitem}[circle]}
+\newcommand*{\etablissement}{Lycée Raspail}
+\count1=\year \count2=\year \ifnum\month<7\advance\count1by-1 \else\advance\count2by1\fi
+\newcommand*{\annee}{\number\count1-\number\count2}
+\newcommand*{\auteur}{R. POIRÉE}
+
+\usepackage{media9}
+
+\usepackage{ccaption}
+
+
+
+\newcommand{\PROF}[1]{\ifthenelse{\boolean{version_prof}}{#1}{}}
+\newcommand{\KARA}[1]{\ifthenelse{\boolean{version_kara}}{\textcolor{red}{#1}\newline}{\null}}
+
+
+\definecolor{bleuclair}{rgb}{0.7, 0.7, 1.0}
+\definecolor{rosepale}{rgb}{1.0, 0.7, 1.0}
+\definecolor{vertclair}{rgb}{0.0, 1.0, 0.0}
+
+\newcommand{\slrosepale}[1]{\colorbox{rosepale}{#1}}
+\newcommand{\slbleuclair}[1]{\colorbox{bleuclair}{#1}}
+\newcommand{\slvertclair}[1]{\colorbox{vertclair}{#1}}
+
+\newcommand{\titreslide}[1]{\mode<presentation>{\frametitle{#1}}}
+
+\newcommand{\correction}[1]
+{\ifthenelse{\boolean{version_prof}}{\textcolor{blue}{#1}}{\textcolor{white}{#1}}} 
+
+\usepackage{pifont,relsize}
+\newcommand{\flechedroite}{{\raisebox{-0.5ex}%
+{\relsize{2}\ding{217}}}\ }
+
+\newcommand{\texteflechedroite}[1]{\flushright{\flechedroite \textbf{#1}}}
+
+\input{paquets/paquet_boites}
+\input{paquets/paquet_maths}
+
+\mode<presentation>{
+\AtBeginSection[]
+{  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+{\tableofcontents[currentsection]
+}
+  \end{frame}
+  \addtocounter{framenumber}{-1}
+}
+
+\AtBeginSubsection[]
+{  \begin{frame}<beamer>
+    \frametitle{Sommaire}
+{\tableofcontents[currentsection,currentsubsection]
+}
+  \end{frame}
+  \addtocounter{framenumber}{-1}
+}
+
+
+\newcommand{\idee}
+{
+\begin{textblock*}{10mm}[1,1](129mm,95mm)
+\begin{figure}\includegraphics[width=\textwidth]{paquets/logo-idee.jpg}\end{figure}
+\end{textblock*}
+}
+}
+
+\mode<article>{\newcommand{\idee}{}}
+
+\input{paquets/trous_interactifs}
+
+
+%% Filigrame
+%\usepackage{draftwatermark}
+%\SetWatermarkLightness{0.5}
+%\SetWatermarkAngle{25}
+%\SetWatermarkScale{2}
+%\SetWatermarkFontSize{2cm}
+%\SetWatermarkText{Texte en filigrane}
+
+
+\ifthenelse{\boolean{version_etud}}{\newcommand{\trouer}[1]{\hide{\textbf{#1}}}}{}
+\ifthenelse{\boolean{version_prof}}{\newcommand{\trouer}[1]{\uncover<+(1)->{\textbf{\textcolor{red}{#1}}}}}{}
+\ifthenelse{\boolean{version_etud}}{\newcommand{\trouerfragile}[1]{\hide{\textbf{#1}}}}{}
+\ifthenelse{\boolean{version_prof}}{\newcommand{\trouerfragile}[1]{\textbf{\textcolor{red}{#1}}}}{}
+
+
+\newcounter{question}[section]
+\mode<presentation>{\resetcounteronoverlays{question}}
+\newcommand{\question}[1]{ \noindent\stepcounter{question}\textbf{Question \thequestion \ :} #1\newline}
+\newcommand{\reponse}[1]{\noindent\ifthenelse{\boolean{version_prof}}{
+\uncover<+(1)->{\color{red}\underline{\color{blue}\textbf{Q\thequestion \ :}}\color{blue}\ #1\newline\color{black}}}{}}
+\newcommand{\resultat}[1]{\fcolorbox{red}{light-gray}{#1}}
+
+\hypersetup{pdfstartview={Fit}} % fits the presentation to the window when first displayed

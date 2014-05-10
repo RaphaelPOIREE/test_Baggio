@@ -1,0 +1,72 @@
+\titreslide{Notations mathématiques}
+\textbf{Symbole torseur :}\\
+\SymboleTorseur
+
+\textbf{Torseur :}\\
+\Torseur{A} \Torseur{B}
+
+\textbf{Torseur en colonne :}\\
+\TorseurColonne{R}{A\\B\\C}{D\\E\\F}{A}\newline
+\verb$\TorseurColonne{R}{A\\B\\C}{D\\E\\F}{A}$
+
+\textbf{Torseur en ligne :}\\
+\TorseurLigne{Point_application}{Ligne_haut}{Ligne_bas}\newline
+\verb$\TorseurLigne{Point_application}{Ligne_haut}{Ligne_bas}$
+
+\textbf{Vecteur en colonne :}\\
+\VecteurColonne{repère}{A}{B}{C}\newline
+\verb$\VecteurColonne{repère}{A}{B}{C}\newline$
+
+\textbf{Vecteur}\\
+\Vecteur{A}\newline
+\verb$\Vecteur{A}$
+
+\textbf{TorseurActionsMeca}\\
+\TorseurActionsMeca{Fext}{S1}\newline
+\verb$\TorseurActionsMeca{Fext}{S1}$
+
+\textbf{DeriveeVecteur}\\
+
+\textbf{Solide}
+Le solide \solide{1} représente
+
+\textbf{Paramétrage angulaire}\newline
+\ParametrageAngulaire{\theta}{\vx{0}}{\vy{0}}{\vz{0}}{\vx{1}}{\vy{1}}[\vz{1}]\\
+
+\textbf{Vitesse}\newline
+\Vitesse{A}{S_1}{R_0} ou \Vitesse{A}{1}{0}\\
+
+\Vitesseabsolue{A}{R_0}\\
+
+\textbf{Vecteur vitesse}\newline
+\VecteurVitesse{A}{S_1}{R_0} ou \VecteurVitesse{A}{1}{0}\\
+
+\VecteurVitesseabsolue{A}{R_0}\\
+
+
+\textbf{Accélération}\newline
+\Acceleration{A}{S_1}{R_0} ou \Acceleration{A}{1}{0}
+\Accelerationabsolue{A}{R_0}\\
+
+\textbf{Vecteur accélération}\newline
+\VecteurAcceleration{A}{S_1}{R_0} ou \VecteurAcceleration{A}{1}{0}
+\VecteurAccelerationabsolue{A}{R_0}\\
+
+
+\textbf{Vecteur rotation}\newline
+\VecteurRotation{1}{0}
+
+\textbf{Changement de point d'un solide}\newline
+\DeplacementVitesse{1}{0}{A}{B}\\
+\DeplacementVitesse{1}{0}{F}{G}
+
+\textbf{Dérivée d'un vecteur}\newline
+\DeriveeVecteur{u}{0}\\
+
+$\DeriveeVecteur{u}{0}=\DeriveeVecteur{u}{1}+\VecteurRotation{1}{0}\vectoriel \Vecteur{u}$\\
+
+\FormuledeBour{u}{0}{1}\\
+
+
+\VecteurAcceleration{A}{1}{0}=\FormuledeBour{\Vitesse{A}{1}{0}}{0}{1}
+

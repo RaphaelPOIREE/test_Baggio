@@ -1,0 +1,47 @@
+%http://mirror.ctan.org/graphics/asymptote/doc/ocg.sty
+
+\newcommand{\ToggleLayer}[2]{%
+  % #1: layer name,
+  % #2: link text
+  \leavevmode
+  \pdfstartlink user {
+    /Subtype /Link
+    /Border [0 0 0]%
+    /A <<
+      /S/JavaScript
+      /JS (
+         var aOCGs = this.getOCGs();
+         var AllChecked = 1;
+         var AllIndex = 0;
+         for(var i=0; aOCGs && i<aOCGs.length;i++)
+         {
+         if(aOCGs[i].name == "#1") {aOCGs[i].state = !aOCGs[i].state;}
+         if(!aOCGs[i].state && aOCGs[i].name != "all") {AllChecked = 0;}
+         if(aOCGs[i].name == "all") {aOCGs[i].state = false; AllIndex=i;}
+         }
+         if(AllChecked == 1) {aOCGs[AllIndex].state = true;}
+      )
+    >>
+  }#2%
+  \pdfendlink
+}
+
+\makeatletter
+\newlength{\hide@width}
+\newcounter{hide@number}
+\newcommand{\hide}[1]{%
+  \refstepcounter{hide@number}%
+  \definecolor{profetu}{gray}{1.00}%
+  \settowidth{\hide@width}{\tcpe{#1}}%
+  \tcpe{#1}%
+  \nobreak\hspace{-\hide@width}%
+  \begin{ocg}{Professeur\arabic{hide@number}}{professeur\arabic{hide@number}}{0}%
+  \definecolor{profetu}{gray}{0.5}%
+  \ToggleLayer{Professeur\arabic{hide@number}}{\tcpe{#1}}%
+  \end{ocg}%
+  \xspace
+}
+\makeatother
+
+\definecolor{profetu}{gray}{1.00}% couleur par defaut
+\newcommand{\tcpe}[1]{{\color{gray}\uwave{\textcolor{profetu}{#1}\ignorespaces}}}

@@ -1,0 +1,42 @@
+\documentclass[b,k,td]{D:/Dropbox/enseignement/CPGE/raphaelpoiree/classe/classe_kara}
+\begin{document}
+\newcommand*{\classe}{PTSI}
+\newcommand*{\partie}{Modèles}
+\newcommand*{\titre}{Modèle de TD}
+\newcommand*{\numero}{-1}
+\input{D:/Dropbox/enseignement/CPGE/raphaelpoiree/paquets/pagedegarde.tex}
+
+\section{Étude cinématique d'un robot 3 axes}
+\begin{frame}\titreslide{Étude cinématique d'un robot 3 axes}
+\source{Christophe Durant}
+Ce TD a pour objectif de mettre en place les techniques de calcul des vecteurs vitesse et accélération d’un point
+lié à un solide par rapport à un repère.\\
+Nous nous intéressons pour cela au robot manipulateur de la figure 1. Ce type de robot est en particulier utilisé
+dans des cellules d’assemblage (Pick and Place). Ce robot possède trois axes c'est à dire trois articulations en série
+pilotées indépendamment : un axe de translation et deux axes de rotation.\\
+La figure 2 constitue une première modélisation en représentant de manière simplifiée la structure du robot. La
+figure 3 représente le schéma cinématique du robot.\\
+
+DESCRIPTION DU SYSTEME :
+Le robot considéré est essentiellement constitué :
+\begin{itemize}
+\item d’un bâti fixe 1 ;
+\item d’un corps 2 qui peut se translater par rapport à 1 ;
+\item d’un bras 3 mobile en rotation par rapport à 2 ;
+\item d’un avant-bras 4 mobile en rotation par rapport à 3 ;
+\item d’une pince (effecteur) solidaire de l' avant-bras 4.
+\end{itemize}
+CARACTERISTIQUES CINEMATIQUES ET GEOMETRIQUES DU SYSTEME :
+\end{frame}
+\begin{frame}\titreslide{Étude cinématique d'un robot 3 axes}
+\question{Exprimer les coordonnées opérationnelles définissant la position $C$ dans $R_1$ en fonction des variables coordonnées articulaires $\theta_3$, $\theta_4$, $\lambda_2$ et de $L$.}
+\reponse{Par relation de Chasles : $\Vecteur{O_1C}=\Vecteur{O_1A}+\Vecteur{AB}+\Vecteur{BC}=\lambda_2 \vz{1} + L \vx{3} +L\vx{4}$\\
+Soit en projetant dans $R_1$...\\
+On a donc : \resultat{Les 3 équations...}
+}
+
+\question{Déterminer le vecteur vitesse du point $A$ lié à $2$ par rapport à $1$}
+\reponse{Par définition :
+\begin{equation}\VecteurVitesse{A}{2}{1}=\DeriveeVecteur{O_1A}{R_1} \end{equation}}
+\end{frame}
+\end{document}

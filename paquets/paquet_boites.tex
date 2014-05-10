@@ -1,0 +1,73 @@
+\mode<presentation>{\definecolor{light-gray}{gray}{0.90}}
+\mode<article>{     \definecolor{light-gray}{gray}{0.95}}
+
+%%%%%%%%% Test nouvelles boîtes
+\newenvironment{gbar}[1]{ %
+\def\FrameCommand{{\color{#1}\vrule width 3pt}\colorbox{light-gray}}%
+\MakeFramed{\advance\hsize -\width \FrameRestore}}%
+{\endMakeFramed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOITE madefinition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{madefinition}[1]
+{
+\mode<presentation>{\definecolor{couleur_transparence}{gray}{0.90}}
+\mode<article>{     \definecolor{couleur_transparence}{gray}{0.95}}
+\medskip
+\begin{bclogo}[barre=none,noborder=true,logo=\bccrayon]{Définition : #1}
+\begin{gbar}{red}
+}
+{\end{gbar}\end{bclogo}
+\definecolor{couleur_transparence}{rgb}{1,1,1}
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOITE monprincipe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{monprincipe}[1]{
+\medskip
+\begin{bclogo}[barre=none,noborder=true,logo=\bcinfo]{Principe : #1}
+\begin{gbar}{yellow}}{\end{gbar}\end{bclogo}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOITE important
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\definecolor{couleur_important}{RGB}{255,255,255}
+	\definecolor{couleurBord_important}{RGB}{255,200,200}
+
+\newenvironment{important}[1]{
+\begin{bclogo}[barre=none,noborder=true,logo=\bcattention]{Important :\  #1}
+\begin{gbar}{red}}{\end{gbar}\end{bclogo}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOITE remarque
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{remarque}[1]{
+\begin{bclogo}[barre=none,noborder=true,logo=\bcinfo]{Remarque :\  #1}
+\begin{gbar}{yellow}}{\end{gbar}\end{bclogo}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOITE exemple
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{exemple}[1]{
+\medskip
+\begin{bclogo}[barre=none,noborder=true,logo=\bcbook]{Exemple :\ #1}
+\begin{gbar}{green}}{\end{gbar}\end{bclogo}}
+
+
+\newenvironment{monorganisation}[1]{
+\medskip
+\begin{bclogo}[barre=none,noborder=true,logo=\bccalendrier]{Organisation :\ #1}
+\begin{gbar}{orange}}{\end{gbar}\end{bclogo}}
+
+
+

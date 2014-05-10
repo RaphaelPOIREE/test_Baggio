@@ -1,0 +1,66 @@
+\newcommand*{\indiceGauche}[2]{\ensuremath{{\vphantom{#2}}_{#1}{#2}}}
+\newcommand*{\exposantGauche}[2]{\ensuremath{{\vphantom{#2}}^{#1}{#2}}}
+\newcommand*{\transposee}[1]{\ensuremath{\exposantGauche{\mathit t}}}
+\newcommand*{\SymboleTorseur}{\ensuremath{\mathscr{T}}}
+\newcommand*{\Torseur}[1]{\ensuremath{\left\lbrace{#1}\right\rbrace}}
+\newcommand*{\TorseurLigne}[3]{\ensuremath{\indiceGauche{#1}{\left\lbrace\begin{array}{c}\displaystyle #2\\\displaystyle #3\end{array}\right\rbrace}}}
+\newcommand*{\TorseurColonne}[4]{\ensuremath{\indiceGauche{#1}{\left\lbrace\begin{array}{c}\displaystyle #2\end{array}\begin{array}{c}\displaystyle #3\end{array}\right\rbrace}_{#4}}}
+\newcommand*{\vx}[1]{\ensuremath{\vec{x_{#1}}}}
+\newcommand*{\vy}[1]{\ensuremath{\vec{y_{#1}}}}
+\newcommand*{\vz}[1]{\ensuremath{\vec{z_{#1}}}}
+\newcommand*{\vu}{\ensuremath{\vec{u} }}
+%\newcommand*{\Rep0}{\ensuremath{R_0}}
+%\newcommand*{\Rep1}{\ensuremath{R_1}}
+%\newcommand*{\Rep2}{\ensuremath{R_2}}
+%\newcommand*{\Rep3}{\ensuremath{R_3}}
+
+\newcommandx*{\baseB}[1]{\ensuremath{\mathscr{B}_{#1}}}
+\newcommandx*{\VecteurColonne}[4]{\indiceGauche{#1}{\left| \begin{array}{l}#2\\#3\\#4\end{array}\right.}}
+\newcommandx*{\VecteurLigne}[4]{(#2,#3,#4)_{#1}}
+
+\newcommandx*{\Vecteur}[1]{\ensuremath{\overrightarrow{#1}}}
+\newcommandx*{\vectoriel}{\ensuremath{\wedge}}
+\newcommandx*{\TorseurActionsMeca}[2]{\ensuremath{\Torseur{T_{\left({#1}\rightarrow{#2}\right)}}}}
+\newcommandx*{\Derivee}[2]{\ensuremath{\frac{\mathrm{d}#1}{\mathrm{d}t |_{#2}}}}
+\newcommandx*{\DeriveeVecteur}[2]{\ensuremath{\frac{\mathrm{d}\vec{#1}}{\mathrm{d}t |_{#2}}}}
+\newcommandx*{\DeriveeVecteurpetit}[2]{\ensuremath{\frac{\mathrm{d}\vec{#1}}{\mathrm{d}t |_{#2}}}}
+\newcommandx*{\solide}[1]{\ensuremath{S_{#1}}}
+\newcommandx*{\Vitesse}[3]{\ensuremath{V_{\ensuremath{#1,#2/#3}}}}
+\newcommandx*{\Vitesseabsolue}[2]{\ensuremath{V_{\ensuremath{#1/#2}}}}
+\newcommandx*{\VecteurVitesse}[3]{\Vecteur{\Vitesse{#1}{#2}{#3}}}
+\newcommandx*{\VecteurVitesseabsolue}[2]{\ensuremath{\Vecteur{V_{\ensuremath{#1/#2}}}}}
+\newcommandx*{\Acceleration}[3]{\ensuremath{\Gamma_{\ensuremath{#1,#2/#3}}}}
+\newcommandx*{\Accelerationabsolue}[2]{\ensuremath{\Gamma_{\ensuremath{#1/#2}}}}
+\newcommandx*{\VecteurAcceleration}[3]{\ensuremath{\Vecteur{\Acceleration{#1}{#2}{#3}}}}
+\newcommandx*{\VecteurAccelerationabsolue}[2]{\ensuremath{\Vecteur{\Accelerationabsolue{#1}{#2}}}}
+\newcommandx*{\VecteurRotation}[2]{\Vecteur{\Omega_{#1/#2}}}
+\newcommandx*{\DeplacementVitesse}[4]{\ensuremath{\VecteurVitesse{#4}{#1}{#2}=\VecteurVitesse{#3}{#1}{#2}+\Vecteur{#4#3}\vectoriel\VecteurRotation{#1}{#2}}}
+\newcommandx*{\FormuledeBour}[3]{\ensuremath{\DeriveeVecteur{#1}{#2}=\DeriveeVecteur{#1}{#3}+\VecteurRotation{#3}{#2}\vectoriel \Vecteur{#1}}}
+\newcommandx*{\FormuledeBourpetitvecteur}[3]{\ensuremath{\DeriveeVecteurpetit{#1}{#2}=\DeriveeVecteurpetit{#1}{#3}+\VecteurRotation{#3}{#2}\vectoriel \vec{#1}}}
+
+\newcommandx*{\ParametrageAngulaire}[8][2=20,8=]
+	{
+	\begin{tikzpicture}
+		\draw [>=stealth,->,very thick] (0,0) -- (2,0) ;
+		\draw [>=stealth,->,very thick] (0,0) -- (0,2) ;
+		\draw [anchor=north west] (2,0) node {#3};
+		\draw [anchor=south west] (0,2) node {#4};
+		\ifthenelse{\equal{#8}{}}
+			{\draw [anchor=north east] (0,0) node {#5};}
+			{\draw [anchor=north east] (0,0) node {#5=#8};}
+		\begin{scope} [rotate=#2]
+			\draw [>=stealth,->,very thick] (0,0) -- (2,0) ;
+			\draw [>=stealth,->,very thick] (0,0) -- (0,2) ;
+			\draw [anchor=south west] (2,0) node {#6};
+			\draw [anchor=north east] (0,2) node {#7};
+		\end{scope}
+		\draw [>=stealth,->](1,0) arc (0:#2:1);
+		\draw [anchor=center]({#2/2}:1.4) node {$#1$};
+		\draw [>=stealth,->,rotate=90] (1,0) arc (0:#2:1);
+		\draw [rotate=90,anchor=center]({#2/2}:1.4) node {$#1$};
+		\fill [white] (0,0) circle (0.15);
+		\draw [very thick] (0,0) circle (0.15) ;
+		\draw [very thick] (0,0) -- (0,0) ;
+		%\draw (0,1) arc (90:$#2+90$:1);
+	\end{tikzpicture}
+	}

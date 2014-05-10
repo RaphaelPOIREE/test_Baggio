@@ -1,0 +1,162 @@
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION ARTICLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{Cours}}{
+
+\mode<article>{
+\thispagestyle{empty}
+\vspace{0.2cm}
+
+\begin{center}
+
+\rule{\linewidth}{5pt}\\
+\begin{minipage}{0.1\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{D:/Dropbox/enseignement/CPGE/raphaelpoiree/paquets/logoBaggio.jpg}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.8\linewidth}
+\begin{center}
+\vspace{0.2cm}
+
+\large{\MakeUppercase{\partie}}\\
+
+\vspace{0.2cm}
+
+\huge{
+Cours \numero \ - \titre
+}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.1\linewidth}
+\end{minipage}
+
+\vspace{0.4cm}
+\rule{\linewidth}{5pt}
+
+\end{center}
+
+\begin{center}
+\MakeUppercase{\etablissement} - \MakeUppercase{\auteur} - \MakeUppercase{\classe} - \MakeUppercase{\annee}
+\end{center}
+
+\tableofcontents
+%\minitoc
+
+%\vfill
+
+%\vspace{1cm}
+\ifthenelse{\boolean{version_prof}}{
+
+\ifthenelse{\boolean{version_kara}}{
+		\begin{bclogo}[couleur = red!70,logo=\bcpanchant]{À faire}
+		\begin{itemize}
+		\afaire
+		\end{itemize}
+		\end{bclogo}
+		}{} %fin ifthenelse version kara
+
+		\begin{bclogo}[couleur = green!30,logo=\bcoutil]{Pré-requis}
+		\begin{itemize}
+		\prerequis
+		\end{itemize}
+		\end{bclogo}
+\begin{minipage}{0.5\textwidth}
+		\begin{bclogo}[couleur = yellow!30,logo=\bctrombone]{Connaissances}
+		\begin{itemize}
+		\connaissances
+		\end{itemize}
+		\end{bclogo}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+		\begin{bclogo}[couleur = yellow!30,logo=\bctrombone]{Savoir-faire}
+		\begin{itemize}
+		\savoirfaire
+		\end{itemize}
+		\end{bclogo}
+\end{minipage}
+
+		\begin{bclogo}[couleur = white!30,logo=\bccalendrier]{Organisation}
+		\begin{itemize}
+		\organisation
+		\end{itemize}
+		\end{bclogo}
+		}{}
+%	 \lhead{\MakeUppercase{\partie}}
+%    \chead{Cours \numero}
+%    \rhead{\titre}
+%    \lfoot{\includegraphics[width=1.2cm]{paquets/Creative_Commons.png} \hspace{0.1cm} \etablissement - \auteur\\ \ }
+%    \cfoot{\thepage/\pageref{LastPage}}
+%    \rfoot{Version \version - \classe}
+%    \renewcommand{\headrulewidth}{0.2pt}
+%    \renewcommand{\footrulewidth}{0.2pt}	
+}%% Fin mode article
+
+%%%%%%%%%%%%%%%%%%%%%%%%%  MODE PRÉSENTATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>{
+\title{Cours \numero \ - \titre}
+\date{Version \version \  du \today}
+\author{\auteur}
+\institute{\etablissement -  \classe}
+
+%%%%% PREMIÈRE SLIDE
+\begin{frame}
+
+	\begin{center}
+		\includegraphics[height=3cm]{img/bandeau_1}
+	\end{center}
+
+
+	\maketitle
+
+\end{frame}
+
+
+
+\ifthenelse{\boolean{version_prof}}{
+\begin{frame}[allowframebreaks]\titreslide{Informations professeur}
+		\ifthenelse{\boolean{version_kara}}{
+		\begin{bclogo}[couleur = red!70,logo=\bcpanchant]{À faire}
+		\begin{itemize}
+		\afaire
+		\end{itemize}
+		\end{bclogo}}{}
+
+		
+		\begin{bclogo}[couleur = white!30,logo=\bccalendrier]{Organisation}
+		\begin{itemize}
+		\organisation
+		\end{itemize}
+		\end{bclogo}
+\end{frame}}{}
+}%% Fin mode présentation
+}{}%% Fin version cours
+
+%% Version EXO
+
+\ifthenelse{\boolean{Exo}}{
+\title{Exercices}
+\mode<article>{
+	\lhead{\MakeUppercase{\partie}}
+%    \chead{Exercice \numero}
+    \rhead{Exercices}
+    \lfoot{\includegraphics[width=1.2cm]{paquets/Creative_Commons.png} \hspace{0.1cm} \etablissement - \auteur }
+    \cfoot{\thepage/\pageref{LastPage}}
+    \rfoot{Version \version}
+    \renewcommand{\headrulewidth}{0.2pt}
+    \renewcommand{\footrulewidth}{0.2pt}
+    }% Fin mode article	
+\mode<presentation>{
+\maketitle
+}
+}{}%% Fin version exercice
+
+
+\ifthenelse{\boolean{TD}}{
+\title{TD \numero}
+\mode<article>{
+}% Fin mode article	
+\mode<presentation>{
+\maketitle
+}
+}{}%% Fin version TD
